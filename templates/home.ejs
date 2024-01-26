@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>홈화면</title>
+    </head>
+    <body>
+        <% if(user) {%>
+            <%=user.id%>님 환영합니다!<br>
+            <form action="/logout" method="post">
+                <button type="submit">로그아웃</button>
+            </form>
+
+            <% if(user.role === 'admin'){ %>
+                <form action="/admin" method="get">
+                    <button type="submit">관리자 페이지</button>
+                </form>
+            <% } else { %>
+                <form action="/mypage" method="get">
+                    <button type="submit">마이 페이지</button>
+                </form>
+            <% } %>
+        <% } else { %>
+            <form action="/login" method="get">
+                <button type="submit">로그인</button>
+            </form>
+        <% } %>
+    </body>
+</html>
