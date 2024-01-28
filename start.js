@@ -1,2 +1,2 @@
-const app = require('./modules/main');
+const app = require("./modules/main");
 app.listen(process.env.PORT);
